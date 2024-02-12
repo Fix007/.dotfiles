@@ -2,3 +2,4 @@
 .config/configstore/update-notifier-gitmoji-cli.json
 .config/gh/hosts.yml
 .config/lazygit/state.yml
+*.bak
