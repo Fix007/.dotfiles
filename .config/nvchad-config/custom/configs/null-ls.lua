@@ -9,8 +9,9 @@ local opts = {
   sources = {
     null_ls.builtins.formatting.isort,
     null_ls.builtins.formatting.black,
-    null_ls.builtins.diagnostics.mypy,
     null_ls.builtins.diagnostics.ruff,
+    -- null_ls.builtins.diagnostics.mypy,
+    -- null_ls.builtins.diagnostics.flake8,
     -- cspell.diagnostics.with({config=cspell_config}),
     -- cspell.code_actions.with({config=cspell_config}),
   },

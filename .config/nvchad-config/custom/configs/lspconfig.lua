@@ -10,4 +10,25 @@ lspconfig.pyright.setup({
   capabilities = capabilities,
   filetypes = {"python"},
   root_dir = lspconfig.util.root_pattern("pyproject.toml"),
+  settings = {
+    pyright = {
+      autoImportCompletion = true,
+    },
+    python = {
+      analysis = {
+        autoSearchPaths = true,
+        -- exclude = {"**/.venv/", "**/venv/", ".venv", "venv"},
+        diagnosticMode = 'workspace',
+        useLibraryCodeForTypes = true,
+        -- typeCheckingMode = 'off',
+        diagnosticSeverityOverrides = {
+          -- reportUnusedImport = "none",
+          -- reportUnusedClass = "none",
+          -- reportUnusedFunction = "none",
+          -- reportUnusedVariable = "none",
+          reportIncompatibleVariableOverride = "none",
+        }
+      }
+    }
+  }
 })

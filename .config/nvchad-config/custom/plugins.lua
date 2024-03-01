@@ -56,10 +56,11 @@ local plugins = {
       ensure_installed = {
         "isort",
         "black",
+        "flake8",
         "debugpy",
         "mypy",
         "ruff",
-        "pyright",
+        "pyright@1.1.343",
       },
     },
   },
@@ -89,7 +90,7 @@ local plugins = {
       "nvim-tree/nvim-web-devicons"
     },
     opts ={
-      severity = vim.diagnostic.severity.ERROR,
+       severity = vim.diagnostic.severity.ERROR,
     }
   },
   {
@@ -125,6 +126,30 @@ local plugins = {
     event = "LspAttach",
     dependencies = {
         "nvim-lua/plenary.nvim",
+    },
+  },
+{
+    "nvim-treesitter/nvim-treesitter",
+    opts = {
+      ensure_installed = {
+        -- defaults 
+        "vim",
+        "lua",
+
+        -- web dev 
+        "html",
+        "css",
+        "javascript",
+        "typescript",
+        "tsx",
+        "json",
+        -- "vue", "svelte",
+
+        "python",
+       -- low level
+        "c",
+        "zig"
+      },
     },
   },
 }
