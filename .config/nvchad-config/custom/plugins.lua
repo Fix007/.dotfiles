@@ -45,7 +45,11 @@ local plugins = {
   },
   {
     "jose-elias-alvarez/null-ls.nvim",
-    ft = {"python"},
+    ft = {
+      "python",
+      "mjml",
+      "html"
+    },
     opts = function()
       return require "custom.configs.null-ls"
     end,
@@ -152,6 +156,17 @@ local plugins = {
       },
     },
   },
+  {
+    "amadeus/vim-mjml",
+    ft = "mjml",
+  },
+  {
+    "glench/vim-jinja2-syntax",
+    ft = {
+      "mjml",
+      "html",
+    }
+  }
 }
 
 return plugins

@@ -32,3 +32,9 @@ lspconfig.pyright.setup({
     }
   }
 })
+
+lspconfig.html.setup({
+  capabilities = capabilities,
+  filetypes = {"html", "mjml"},
+}
+)
