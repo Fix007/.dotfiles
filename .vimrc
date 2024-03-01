@@ -1,3 +1,4 @@
-:let mapleader = ","
-:set relativenumber
-:set scrolloff=10
+let mapleader = ","
+set relativenumber
+set scrolloff=15
+set pumheight=8
