@@ -4,7 +4,7 @@ require("nvchad.configs.lspconfig").defaults()
 local lspconfig = require "lspconfig"
 
 -- EXAMPLE
-local servers = { "html", "cssls" }
+local servers = { "html", "cssls", "ts_ls", "volar" }
 local nvlsp = require "nvchad.configs.lspconfig"
 
 -- lsps with default config
@@ -24,12 +24,12 @@ end
 -- }
 --
 --
-lspconfig.pyright.setup({
+lspconfig.pyright.setup {
   on_attach = nvlsp.on_attach,
   on_init = nvlsp.on_init,
   capabilities = nvlsp.capabilities,
-  filetypes = {"python"},
-  root_dir = lspconfig.util.root_pattern("pyproject.toml"),
+  filetypes = { "python" },
+  root_dir = lspconfig.util.root_pattern "pyproject.toml",
   settings = {
     pyright = {
       autoImportCompletion = true,
@@ -38,7 +38,7 @@ lspconfig.pyright.setup({
       analysis = {
         autoSearchPaths = true,
         -- exclude = {"**/.venv/", "**/venv/", ".venv", "venv"},
-        diagnosticMode = 'workspace',
+        diagnosticMode = "workspace",
         useLibraryCodeForTypes = true,
         -- typeCheckingMode = 'off',
         diagnosticSeverityOverrides = {
@@ -47,17 +47,17 @@ lspconfig.pyright.setup({
           -- reportUnusedFunction = "none",
           -- reportUnusedVariable = "none",
           reportIncompatibleVariableOverride = "none",
-        }
-      }
-    }
-  }
-})
+        },
+      },
+    },
+  },
+}
 
-lspconfig.html.setup({
-    on_attach = nvlsp.on_attach,
-    on_init = nvlsp.on_init,
-    capabilities = nvlsp.capabilities,
-    filetypes = {"html", "mjml"},
-})
+lspconfig.html.setup {
+  on_attach = nvlsp.on_attach,
+  on_init = nvlsp.on_init,
+  capabilities = nvlsp.capabilities,
+  filetypes = { "html", "mjml" },
+}
 
-lspconfig.jsonls.setup({})
+lspconfig.jsonls.setup {}
