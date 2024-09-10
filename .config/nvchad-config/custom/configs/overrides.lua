@@ -11,6 +11,7 @@ M.nvimtree = {
   },
   git = {
     enable = true,
+    ignore = false,
   },
   renderer = {
     highlight_git = true,
@@ -19,9 +20,6 @@ M.nvimtree = {
         git = true,
       },
     },
-  },
-  view = {
-    side = "right",
   },
 }
 

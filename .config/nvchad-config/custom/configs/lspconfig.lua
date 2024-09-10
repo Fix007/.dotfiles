@@ -34,7 +34,8 @@ lspconfig.pyright.setup({
 })
 
 lspconfig.html.setup({
-  capabilities = capabilities,
-  filetypes = {"html", "mjml"},
-}
-)
+    capabilities = capabilities,
+    filetypes = {"html", "mjml"},
+})
+
+lspconfig.jsonls.setup({})
