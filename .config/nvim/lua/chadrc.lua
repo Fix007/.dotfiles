@@ -6,12 +6,21 @@
 local M = {}
 
 M.base46 = {
-	theme = "onedark",
+	theme = "palenight",
+  transparency = true,
 
 	-- hl_override = {
 	-- 	Comment = { italic = true },
 	-- 	["@comment"] = { italic = true },
 	-- },
 }
+
+vim.diagnostic.config(
+  {
+    virtual_lines = {
+      only_current_line = true
+    }
+  }
+)
 
 return M

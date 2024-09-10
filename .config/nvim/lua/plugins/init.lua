@@ -1,4 +1,4 @@
-local overrides = require("configs.overrides")
+local overrides = require "configs.overrides"
 
 return {
   {
@@ -14,7 +14,9 @@ return {
       require "configs.lspconfig"
     end,
   },
-
+  {
+    "junegunn/fzf.vim",
+  },
   -- {
   -- 	"nvim-treesitter/nvim-treesitter",
   -- 	opts = {
@@ -33,8 +35,8 @@ return {
     "rcarriga/nvim-dap-ui",
     dependencies = "mfussenegger/nvim-dap",
     config = function()
-      local dap = require("dap")
-      local dapui = require("dapui")
+      local dap = require "dap"
+      local dapui = require "dapui"
       dapui.setup()
       dap.listeners.after.event_initialized["dapui_config"] = function()
         dapui.open()
@@ -50,8 +52,8 @@ return {
   {
     "mfussenegger/nvim-dap",
     config = function(_, opts)
-      require("core.utils").load_mappings("dap")
-    end
+      require("core.utils").load_mappings "dap"
+    end,
   },
   {
     "mfussenegger/nvim-dap-python",
@@ -63,7 +65,7 @@ return {
     config = function(_, opts)
       local path = "~/.local/share/nvim/mason/packages/debugpy/venv/bin/python"
       require("dap-python").setup(path)
-      require("core.utils").load_mappings("dap_python")
+      require("core.utils").load_mappings "dap_python"
     end,
   },
   {
@@ -71,7 +73,7 @@ return {
     ft = {
       "python",
       "mjml",
-      "html"
+      "html",
     },
     opts = function()
       return require "configs.null-ls"
@@ -97,34 +99,43 @@ return {
     },
   },
   {
-    "nvim-lua/plenary.nvim"
+    "nvim-lua/plenary.nvim",
   },
   {
     "nvim-telescope/telescope.nvim",
     dependencies = {
-      "nvim-lua/plenary.nvim"
+      "nvim-lua/plenary.nvim",
+      "junegunn/fzf.vim",
     },
     config = function()
-        local telescope = require("telescope")
-        telescope.setup({
-            pickers = {
-                live_grep = {
-                    file_ignore_patterns = { 'node_modules', '.git', '.venv' },
-                    additional_args = function(_)
-                        return { "--hidden" }
-                    end
-                },
-                find_files = {
-                    file_ignore_patterns = { 'node_modules', '.git', '.venv' },
-                    hidden = true
-                }
-
+      local telescope = require "telescope"
+      telescope.setup {
+        defaults = {
+          layout_strategy = "horizontal",
+          layout_config = {
+            horizontal = {
+              prompt_position = "top",
             },
-            extensions = {
-                "fzf"
-            },
-        })
-        telescope.load_extension("fzf")
+          },
+          sorting_strategy = "ascending",
+        },
+        pickers = {
+          live_grep = {
+            file_ignore_patterns = { "node_modules", ".git", ".venv" },
+            additional_args = function(_)
+              return { "--hidden" }
+            end,
+          },
+          find_files = {
+            file_ignore_patterns = { "node_modules", ".git", ".venv" },
+            hidden = true,
+          },
+        },
+        -- extensions = {
+        --   "fzf",
+        -- },
+      }
+      -- telescope.load_extension "fzf"
     end,
   },
   {
@@ -134,11 +145,11 @@ return {
     "folke/trouble.nvim",
     event = "LspAttach",
     dependencies = {
-      "nvim-tree/nvim-web-devicons"
+      "nvim-tree/nvim-web-devicons",
     },
-    opts ={
-       severity = vim.diagnostic.severity.ERROR,
-    }
+    opts = {
+      severity = vim.diagnostic.severity.ERROR,
+    },
   },
   {
     "Aasim-A/scrollEOF.nvim",
@@ -151,8 +162,8 @@ return {
     "klen/nvim-test",
     event = "LspAttach",
     config = function()
-      require('nvim-test').setup()
-    end
+      require("nvim-test").setup()
+    end,
   },
   {
     "andythigpen/nvim-coverage",
@@ -172,18 +183,18 @@ return {
     "kdheepak/lazygit.nvim",
     event = "LspAttach",
     dependencies = {
-        "nvim-lua/plenary.nvim",
+      "nvim-lua/plenary.nvim",
     },
   },
-{
+  {
     "nvim-treesitter/nvim-treesitter",
     opts = {
       ensure_installed = {
-        -- defaults 
+        -- defaults
         "vim",
         "lua",
 
-        -- web dev 
+        -- web dev
         "html",
         "css",
         "javascript",
@@ -193,9 +204,9 @@ return {
         -- "vue", "svelte",
 
         "python",
-       -- low level
+        -- low level
         "c",
-        "zig"
+        "zig",
       },
     },
   },
@@ -208,12 +219,14 @@ return {
     ft = {
       "mjml",
       "html",
-    }
+    },
   },
   {
-   "iamcco/markdown-preview.nvim",
+    "iamcco/markdown-preview.nvim",
     cmd = { "MarkdownPreviewToggle", "MarkdownPreview", "MarkdownPreviewStop" },
     ft = { "markdown" },
-    build = function() vim.fn["mkdp#util#install"]() end,
-  }
+    build = function()
+      vim.fn["mkdp#util#install"]()
+    end,
+  },
 }
