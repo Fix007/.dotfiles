@@ -9,17 +9,20 @@ M.nvimtree = {
       quit_on_open = true,
     },
   },
-  -- git = {
-  --   enable = true,
-  -- },
-  -- renderer = {
-  --   highlight_git = true,
-  --   icons = {
-  --     show = {
-  --       git = true,
-  --     },
-  --   },
-  -- },
+  git = {
+    enable = true,
+  },
+  renderer = {
+    highlight_git = true,
+    icons = {
+      show = {
+        git = true,
+      },
+    },
+  },
+  view = {
+    side = "right",
+  },
 }
 
 
