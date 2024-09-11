@@ -6,6 +6,7 @@ local map = vim.keymap.set
 
 map("n", ";", ":", { desc = "CMD enter command mode" })
 map("i", "jk", "<ESC>")
+map("n", "<leader>tt", "<cmd>Trouble mydiag_errors <cr>", {desc = "Open Trouble in error mode"})
 
 
 -- map({ "n", "i", "v" }, "<C-s>", "<cmd> w <cr>")
