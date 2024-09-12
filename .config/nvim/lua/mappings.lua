@@ -4,9 +4,10 @@ require "nvchad.mappings"
 
 local map = vim.keymap.set
 
-map("n", ";", ":", { desc = "CMD enter command mode" })
-map("i", "jk", "<ESC>")
-map("n", "<leader>tt", "<cmd>Trouble mydiag_errors <cr>", {desc = "Open Trouble in error mode"})
+-- map("n", ";", ":", { desc = "CMD enter command mode" })
+-- map("i", "jk", "<ESC>")
+map("n", "<leader>te", "<cmd>Trouble mydiag_errors <cr>", {desc = "Open Trouble filtered by errors"})
+map("n", "<leader>ta", "<cmd>Trouble mydiag_all <cr>", {desc = "Open Trouble for all warnings"})
 
 
 -- map({ "n", "i", "v" }, "<C-s>", "<cmd> w <cr>")
