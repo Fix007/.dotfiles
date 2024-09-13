@@ -167,6 +167,18 @@ return {
         },
         mydiag_all = {
           mode = "diagnostics",
+          filter = {
+            any = {
+              buf = 0, -- current buffer
+              {
+                severity = { min = vim.diagnostic.severity.INFO },
+                -- limit to files in the current project
+                function(item)
+                  return item.filename:find((vim.loop or vim.uv).cwd(), 1, true)
+                end,
+              },
+            },
+          },
         },
       },
     },
