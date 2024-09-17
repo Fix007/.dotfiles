@@ -19,6 +19,7 @@ M.mason = {
   command = true,
   pkgs = {
     "black",
+    "codespell",
     "debugpy",
     "djlint",
     "flake8",
@@ -29,7 +30,9 @@ M.mason = {
     "prettierd",
     "pyright",
     "ruff",
+    "ruff-lsp",
     "typescript-language-server",
+    "vetur-vls",
     "vue-language-server",
   },
 }
