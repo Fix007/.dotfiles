@@ -94,7 +94,7 @@ return {
               },
             },
           },
-          -- # filter by severiy
+          -- # filter by severity
           -- filter = function(items)
           --   local severity = vim.diagnostic.severity.HINT
           --   for _, item in ipairs(items) do
@@ -196,10 +196,13 @@ return {
   {
     "iamcco/markdown-preview.nvim",
     cmd = { "MarkdownPreviewToggle", "MarkdownPreview", "MarkdownPreviewStop" },
-    ft = { "markdown" },
-    build = function()
-      vim.fn["mkdp#util#install"]()
+    build = "cd app && yarn install",
+    init = function()
+      vim.g.mkdp_filetypes = { "markdown" }
+      -- vim.g.mkdp_auto_start = 1
+      vim.g.mkdp_auto_close = 0
     end,
+    ft = { "markdown" },
   },
   {
     "pwntester/octo.nvim",

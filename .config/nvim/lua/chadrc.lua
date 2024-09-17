@@ -26,6 +26,7 @@ M.mason = {
     "isort",
     "jq",
     "jq-lsp",
+    "marksman",
     "mypy",
     "prettierd",
     "pyright",
