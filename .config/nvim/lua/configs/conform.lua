@@ -12,7 +12,7 @@ local options = {
       "prettier",
       stop_after_first = true,
     },
-    typescript= {
+    typescript = {
       "prettierd",
       "prettier",
       stop_after_first = true,
@@ -32,6 +32,7 @@ local options = {
       "prettier",
       stop_after_first = true,
     },
+    yaml = { "yamlfmt" },
 
     ["*"] = { "codespell" },
     ["_"] = { "trim_whitespace" },

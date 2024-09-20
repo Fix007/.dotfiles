@@ -2,7 +2,7 @@
 require("nvchad.configs.lspconfig").defaults()
 local lspconfig = require "lspconfig"
 
-local capabilities = require("mini.completion").completefunc_lsp()
+-- local capabilities = require("mini.completion").completefunc_lsp()
 local util = require "lspconfig.util"
 local mason_registry = require "mason-registry"
 local vue_language_server_path = mason_registry.get_package("vue-language-server"):get_install_path()
@@ -11,6 +11,7 @@ local vue_language_server_path = mason_registry.get_package("vue-language-server
 local servers = {
   "cssls",
   "html",
+  "jsonls",
   "marksman",
   "ruff",
   "ruff_lsp",
@@ -33,7 +34,7 @@ end
 --   capabilities = nvlsp.capabilities,
 -- }
 --
---
+
 lspconfig.pyright.setup {
   on_attach = nvlsp.on_attach,
   on_init = nvlsp.on_init,
@@ -69,8 +70,6 @@ lspconfig.html.setup {
   capabilities = nvlsp.capabilities,
   filetypes = { "html", "mjml" },
 }
-
-lspconfig.jsonls.setup {}
 
 lspconfig.volar.setup {
   on_attach = nvlsp.on_attach,
@@ -116,13 +115,35 @@ local vue_version = get_vue_version()
 if vue_version == 3 then
   -- use volar for vue 3
   lspconfig.volar.setup {
-    capabilities = capabilities,
+    capabilities = nvlsp.capabilities,
+    -- capabilities = capabilities,
   }
 else
   -- use vetur (vuels) for vue 2
   lspconfig.vuels.setup {
-    capabilities = capabilities,
+    capabilities = nvlsp.capabilities,
+    -- capabilities = capabilities,
     filetypes = { "vue" },
     root_dir = lspconfig.util.root_pattern("package.json", ".git"),
   }
 end
+
+local bicep_language_server_path = mason_registry.get_package("bicep-lsp"):get_install_path()
+  .. "/extension/bicepLanguageServer/Bicep.LangServer.dll"
+
+lspconfig.bicep.setup {
+  cmd = { "dotnet", bicep_language_server_path },
+}
+
+require("lspconfig").yamlls.setup {
+  settings = {
+    yaml = {
+      schemas = {
+        ["https://json.schemastore.org/github-workflow.json"] = "/.github/workflows/*",
+        ["https://raw.githubusercontent.com/compose-spec/compose-spec/main/schema/compose-spec.json"] = {
+          "/docker-compose*.yml",
+        },
+      },
+    },
+  },
+}

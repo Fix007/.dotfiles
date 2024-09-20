@@ -18,6 +18,7 @@ M.base46 = {
 M.mason = {
   command = true,
   pkgs = {
+    "bicep-lsp",
     "black",
     "codespell",
     "debugpy",
@@ -35,6 +36,9 @@ M.mason = {
     "typescript-language-server",
     "vetur-vls",
     "vue-language-server",
+    "yaml-language-server",
+    "yamlfmt",
+    "yq",
   },
 }
 
