@@ -8,17 +8,17 @@ local options = {
       "black",
     },
     javascript = {
-      "prettierd",
+      -- "prettierd",
       "prettier",
       stop_after_first = true,
     },
     typescript = {
-      "prettierd",
+      -- "prettierd",
       "prettier",
       stop_after_first = true,
     },
     vue = {
-      "prettierd",
+      -- "prettierd",
       "prettier",
       stop_after_first = true,
     },
@@ -33,6 +33,7 @@ local options = {
       stop_after_first = true,
     },
     yaml = { "yamlfmt" },
+    markdown = { "markdownlint-cli2" },
 
     ["*"] = { "codespell" },
     ["_"] = { "trim_whitespace" },
@@ -40,7 +41,7 @@ local options = {
 
   format_on_save = {
     -- These options will be passed to conform.format()
-    timeout_ms = 500,
+    timeout_ms = 5000,
     lsp_fallback = true,
   },
 }
