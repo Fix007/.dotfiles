@@ -31,7 +31,7 @@ M.mason = {
     "marksman",
     "mypy",
     "prettierd",
-    "pyright@1.1.383",
+    "pyright",
     "ruff",
     "ruff-lsp",
     "typescript-language-server",
