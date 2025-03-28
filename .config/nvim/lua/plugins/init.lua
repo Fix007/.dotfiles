@@ -151,4 +151,8 @@ return {
     opts = require "configs.todo-comments",
     lazy = false,
   },
+  {
+    "justinmk/vim-sneak",
+    lazy = false,
+  },
 }
