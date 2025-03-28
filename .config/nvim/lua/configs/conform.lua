@@ -33,7 +33,7 @@ local options = {
       stop_after_first = true,
     },
     yaml = { "yamlfmt" },
-    markdown = { "markdownlint-cli2" },
+    -- markdown = { "markdownlint-cli2" },
 
     ["*"] = { "codespell" },
     ["_"] = { "trim_whitespace" },
