@@ -145,4 +145,10 @@ return {
     config = true,
     lazy = false,
   },
+  {
+    "folke/todo-comments.nvim",
+    dependencies = { "nvim-lua/plenary.nvim" },
+    opts = require "configs.todo-comments",
+    lazy = false,
+  },
 }
