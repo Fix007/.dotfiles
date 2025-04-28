@@ -33,7 +33,6 @@ M.mason = {
     "prettierd",
     "pyright",
     "ruff",
-    "ruff-lsp",
     "typescript-language-server",
     "vetur-vls",
     "vue-language-server",
