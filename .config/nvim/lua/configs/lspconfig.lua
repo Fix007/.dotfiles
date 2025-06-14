@@ -5,8 +5,7 @@ local lspconfig = require "lspconfig"
 -- local capabilities = require("mini.completion").completefunc_lsp()
 local util = require "lspconfig.util"
 local mason_registry = require "mason-registry"
-local vue_language_server_path = mason_registry.get_package("vue-language-server"):get_install_path()
-  .. "/node_modules/@vue/language-server"
+local vue_language_server_path = vim.fn.exepath "vue-language-server" .. "/node_modules/@vue/language-server"
 
 local servers = {
   "cssls",
@@ -127,12 +126,13 @@ else
   }
 end
 
-local bicep_language_server_path = mason_registry.get_package("bicep-lsp"):get_install_path()
-  .. "/extension/bicepLanguageServer/Bicep.LangServer.dll"
+local bicep_language_server_path = "/usr/local/bin/bicep-langserver/Bicep.LangServer.dll"
 
 lspconfig.bicep.setup {
   cmd = { "dotnet", bicep_language_server_path },
 }
+
+vim.cmd [[ autocmd BufNewFile,BufRead *.bicep set filetype=bicep ]]
 
 require("lspconfig").yamlls.setup {
   settings = {

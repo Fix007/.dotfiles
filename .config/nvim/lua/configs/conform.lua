@@ -33,6 +33,7 @@ local options = {
       stop_after_first = true,
     },
     yaml = { "yamlfmt" },
+    -- bicep = { "bicep" },
     -- markdown = { "markdownlint-cli2" },
 
     ["*"] = { "codespell" },
