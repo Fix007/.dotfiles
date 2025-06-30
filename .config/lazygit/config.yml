@@ -1,7 +1,14 @@
 customCommands:
   - key: "C"
     command: |
-      git commit -m "{{ .Form.Type }}{{if .Form.Scopes}}({{ .Form.Scopes }}){{end}}: {{ .Form.Description }}" \
+      issue_key=$(git rev-parse --abbrev-ref HEAD | cut -f1,2 -d'-')
+      if [[ $issue_key =~ "[a-zA-Z]+-[0-9]+$" ]]; then
+        issue_key=" $issue_key"
+      else
+        issue_key=""
+      fi
+
+      git commit -m "{{ .Form.Type }}{{if .Form.Scopes}}({{ .Form.Scopes }}){{end}}:$issue_key {{ .Form.Description }}" \
       {{- if .Form.LongDescription }}
       -m "{{ .Form.LongDescription }}" \
       {{- end }}
