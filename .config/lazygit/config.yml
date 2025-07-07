@@ -1,7 +1,7 @@
 customCommands:
   - key: "C"
     command: |
-      issue_key=$(git branch --show-current | cut -f1,2 -d'-')
+      issue_key=$(git branch --show-current | cut -f1,2 -d'-' | tr '/a-z/' '/A-Z/')
       if [[ $issue_key =~ "[a-zA-Z]+-[0-9]+$" ]]; then
         issue_key=" $issue_key"
       else
