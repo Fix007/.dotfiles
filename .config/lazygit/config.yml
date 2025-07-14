@@ -91,7 +91,7 @@ customCommands:
       name="$issue_key-{{ .Form.Type }}-$title"
 
       git fetch --all
-      git checkout -b "${name:0:120}" dev
+      git checkout -b "${name:0:120}" "{{ .Form.Branch }}"
     context: files
     description: some description
     prompts:
@@ -114,3 +114,7 @@ customCommands:
           - name: "Research"
             description: "Research"
             value: "research"
+      - type: "input"
+        title: "Source Branch"
+        key: "Branch"
+        initialValue: 'dev'
