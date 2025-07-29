@@ -2,7 +2,7 @@ local M = {}
 
 M.nvimtree = {
   view = {
-    adaptive_size = true
+    adaptive_size = true,
   },
   actions = {
     open_file = {
@@ -12,6 +12,7 @@ M.nvimtree = {
   git = {
     enable = true,
     ignore = false,
+    timeout = 1000,
   },
   renderer = {
     highlight_git = true,
@@ -22,6 +23,5 @@ M.nvimtree = {
     },
   },
 }
-
 
 return M

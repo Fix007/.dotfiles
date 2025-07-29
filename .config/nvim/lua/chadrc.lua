@@ -18,12 +18,16 @@ M.base46 = {
 M.mason = {
   command = true,
   pkgs = {
+    "autoflake",
     "bicep-lsp",
     "black",
     "codespell",
     "debugpy",
     "djlint",
+    "docker-compose-language-service",
+    "dockerfile-language-server",
     "flake8",
+    "gopls",
     "isort",
     "jq",
     "jq-lsp",

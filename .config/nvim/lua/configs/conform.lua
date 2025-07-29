@@ -4,6 +4,7 @@ local options = {
     css = { "prettier" },
     html = { "prettier" },
     python = {
+      "autoflake",
       "isort",
       "black",
     },

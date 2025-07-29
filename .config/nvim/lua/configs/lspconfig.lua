@@ -9,6 +9,9 @@ local vue_language_server_path = vim.fn.exepath "vue-language-server" .. "/node_
 
 local servers = {
   "cssls",
+  "docker_compose_language_service",
+  "dockerls",
+  "gopls",
   "html",
   "jsonls",
   "marksman",
@@ -142,6 +145,9 @@ require("lspconfig").yamlls.setup {
         ["https://raw.githubusercontent.com/compose-spec/compose-spec/main/schema/compose-spec.json"] = {
           "/docker-compose*.yml",
         },
+      },
+      customTags = {
+        "!reference sequence",
       },
     },
   },
