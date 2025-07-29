@@ -36,6 +36,8 @@ local options = {
     yaml = { "yamlfmt" },
     -- bicep = { "bicep" },
     -- markdown = { "markdownlint-cli2" },
+    groovy = { "npm-groovy-lint" },
+    java = { "google-java-format" },
 
     ["*"] = { "codespell" },
     ["_"] = { "trim_whitespace" },

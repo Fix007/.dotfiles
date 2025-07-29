@@ -12,6 +12,7 @@ local servers = {
   "docker_compose_language_service",
   "dockerls",
   "gopls",
+  "gradle_ls",
   "html",
   "jsonls",
   "marksman",

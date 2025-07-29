@@ -81,6 +81,7 @@ return {
         -- low level
         "c",
         "zig",
+        "java",
       },
     },
   },
@@ -115,5 +116,8 @@ return {
   {
     "justinmk/vim-sneak",
     lazy = false,
+  },
+  {
+    "mfussenegger/nvim-jdtls",
   },
 }
