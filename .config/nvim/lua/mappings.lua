@@ -77,3 +77,7 @@ for name, maps in pairs(M) do
     end
   end
 end
+
+map("n", "K", function()
+  vim.lsp.buf.hover { border = "single", max_height = 25, max_width = 120 }
+end)
