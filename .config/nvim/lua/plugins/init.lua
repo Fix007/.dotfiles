@@ -54,27 +54,6 @@ return {
     end,
   },
   {
-    "klen/nvim-test",
-    event = "LspAttach",
-    config = function()
-      require("nvim-test").setup()
-    end,
-  },
-  {
-    "andythigpen/nvim-coverage",
-    event = "LspAttach",
-    dependencies = {
-      "nvim-lua/plenary.nvim",
-    },
-    config = function()
-      require("coverage").setup()
-    end,
-  },
-  {
-    "talha-akram/noctis.nvim",
-    event = "LspAttach",
-  },
-  {
     "kdheepak/lazygit.nvim",
     event = "LspAttach",
     dependencies = {
@@ -126,24 +105,6 @@ return {
       vim.g.mkdp_auto_close = 0
     end,
     ft = { "markdown" },
-  },
-  {
-    "pwntester/octo.nvim",
-    requires = {
-      "nvim-lua/plenary.nvim",
-      "nvim-telescope/telescope.nvim",
-      -- OR 'ibhagwan/fzf-lua',
-      "nvim-tree/nvim-web-devicons",
-    },
-    config = function()
-      require("octo").setup()
-    end,
-  },
-  {
-    "akinsho/git-conflict.nvim",
-    version = "*",
-    config = true,
-    lazy = false,
   },
   {
     "folke/todo-comments.nvim",
