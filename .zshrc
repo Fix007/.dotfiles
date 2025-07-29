@@ -154,3 +154,11 @@ PERL_MM_OPT="INSTALL_BASE=$HOME/perl5"; export PERL_MM_OPT;
 
 # lazygit config path
 export XDG_CONFIG_HOME="$HOME/.config"
+autoload -U compinit; compinit
+
+# include custom scripts
+PATH="$PATH:$HOME/bin"
+
+alias jjc=jj-commit-with-issue-number
+alias jji=jj-get-current-issue-number
+alias jjb="jj bookmark list -r 'heads(::@ & bookmarks())' --no-pager"
