@@ -1,0 +1,44 @@
+#!/usr/bin/env zsh
+
+set -e
+
+help_message="usage: jjc <type> (<scope>|-) <message>
+
+types:
+  feat        Features
+  fix         Bug Fixes
+  docs        Documentation
+  style       Styles
+  refactor    Code Refactoring
+  perf        Performance Improvements
+  test        Tests
+  build       Builds
+  ci          Continuous Integrations
+  chore       Chores
+  revert      Reverts
+"
+
+if [[ $1 == "" ]]; then
+  echo $help_message
+  exit 0
+fi
+
+commit_type=$1
+commit_scope=$2
+commit_message=${@:3}
+
+if [[ $commit_scope == "-" ]]; then
+  commit_scope=""
+else
+  commit_scope="($commit_scope)"
+fi
+
+issue_key=$(jj-get-current-issue-number)
+
+if [[ $issue_key =~ "[a-zA-Z]+-[0-9]+$" ]]; then
+  issue_key=" $issue_key"
+else
+  issue_key=""
+fi
+
+jj commit -m "${commit_type}${commit_scope}:${issue_key} ${commit_message}"
