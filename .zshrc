@@ -159,6 +159,11 @@ autoload -U compinit; compinit
 # include custom scripts
 PATH="$PATH:$HOME/bin"
 
+if [ -f ~/.bash_profile ]; then
+    . ~/.bash_profile;
+fi
+
 alias jjc=jj-commit-with-issue-number
 alias jji=jj-get-current-issue-number
 alias jjb="jj bookmark list -r 'heads(::@ & bookmarks())' --no-pager"
+
