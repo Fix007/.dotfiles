@@ -38,6 +38,7 @@ local options = {
     -- markdown = { "markdownlint-cli2" },
     groovy = { "npm-groovy-lint" },
     java = { "google-java-format" },
+    kotlin = { "ktlint" },
 
     ["*"] = { "codespell" },
     ["_"] = { "trim_whitespace" },

@@ -34,6 +34,8 @@ M.mason = {
     "jdtls",
     "jq",
     "jq-lsp",
+    "kotlin-lsp",
+    "ktlint",
     "markdownlint-cli2",
     "marksman",
     "mypy",

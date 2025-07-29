@@ -1,6 +1,7 @@
 -- load defaults i.e lua_lsp
 require("nvchad.configs.lspconfig").defaults()
 local lspconfig = require "lspconfig"
+local configs = require "lspconfig.configs"
 
 -- local capabilities = require("mini.completion").completefunc_lsp()
 local util = require "lspconfig.util"
@@ -18,6 +19,7 @@ local servers = {
   "marksman",
   "ruff",
 }
+
 local nvlsp = require "nvchad.configs.lspconfig"
 
 -- lsps with default config
@@ -28,6 +30,8 @@ for _, lsp in ipairs(servers) do
     capabilities = nvlsp.capabilities,
   }
 end
+
+vim.lsp.enable "kotlin_lsp"
 
 -- configuring single server, example: typescript
 -- lspconfig.tsserver.setup {
