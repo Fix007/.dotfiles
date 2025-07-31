@@ -2,7 +2,7 @@
 
 set -e
 
-issue_key=$(jj bookmark list -r 'heads(::@ & bookmarks())' --no-pager | cut -f1,2 -d'-' | tr '/a-z/' '/A-Z/')
+issue_key=$(jj bookmark list -r 'heads(::@ & bookmarks())' --no-pager | head -n 1 | cut -f1,2 -d'-' | tr '/a-z/' '/A-Z/')
 
 if [[ $issue_key =~ "[a-zA-Z]+-[0-9]+$" ]]; then
   echo $issue_key
