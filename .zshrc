@@ -163,7 +163,8 @@ if [ -f ~/.bash_profile ]; then
     . ~/.bash_profile;
 fi
 
-alias jjc=jj-commit-with-issue-number
-alias jji=jj-get-current-issue-number
 alias jjb="jj bookmark list -r 'heads(::@ & bookmarks())' --no-pager"
+alias jjc=jj-commit-with-issue-number
+alias jjd=jj-describe-with-issue-number
+alias jji=jj-get-current-issue-number
 

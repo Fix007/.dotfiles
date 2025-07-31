@@ -42,4 +42,4 @@ else
   issue_key=""
 fi
 
-jj commit -m "${commit_type}${commit_scope}:${issue_key} ${commit_message}"
+jj describe -m "${commit_type}${commit_scope}:${issue_key} ${commit_message}"
