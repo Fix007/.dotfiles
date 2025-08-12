@@ -109,6 +109,8 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
+setopt HIST_IGNORE_SPACE
+
 export PATH="/opt/homebrew/opt/python@3.10/bin:$PATH"
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
@@ -155,6 +157,10 @@ PERL_MM_OPT="INSTALL_BASE=$HOME/perl5"; export PERL_MM_OPT;
 # lazygit config path
 export XDG_CONFIG_HOME="$HOME/.config"
 autoload -U compinit; compinit
+source <(COMPLETE=zsh jj)
+
+# cargo bin
+PATH="$PATH:$HOME/.cargo/bin"
 
 # include custom scripts
 PATH="$PATH:$HOME/bin"
