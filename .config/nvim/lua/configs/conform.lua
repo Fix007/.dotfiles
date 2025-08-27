@@ -5,8 +5,11 @@ local options = {
     html = { "prettier" },
     python = {
       -- "autoflake",
-      "isort",
-      "black",
+      -- "isort",
+      -- "black",
+      "ruff_fix",
+      "ruff_format",
+      "ruff_organize_imports",
     },
     javascript = {
       -- "prettierd",
