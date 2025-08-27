@@ -81,3 +81,5 @@ end
 map("n", "K", function()
   vim.lsp.buf.hover { border = "single", max_height = 25, max_width = 120 }
 end)
+
+map({ "n", "t" }, "<leader>v", "<cmd>FloatermToggle <cr>")

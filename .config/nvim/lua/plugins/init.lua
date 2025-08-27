@@ -142,4 +142,10 @@ return {
   {
     "mfussenegger/nvim-jdtls",
   },
+  {
+    "nvzone/floaterm",
+    dependencies = "nvzone/volt",
+    opts = {},
+    cmd = "FloatermToggle",
+  },
 }
