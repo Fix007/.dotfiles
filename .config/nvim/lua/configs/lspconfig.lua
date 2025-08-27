@@ -4,7 +4,6 @@ local lspconfig = require "lspconfig"
 
 -- local capabilities = require("mini.completion").completefunc_lsp()
 local vue_language_server_path = vim.fn.exepath "vue-language-server" .. "/node_modules/@vue/language-server"
-local nvlsp = require "nvchad.configs.lspconfig"
 
 local servers = {
   "bicep",
@@ -24,27 +23,23 @@ local servers = {
 }
 
 vim.lsp.config("pyright", {
-  setup = {
-    filetypes = { "python" },
-    root_dir = lspconfig.util.root_pattern "pyproject.toml",
-    settings = {
-      pyright = {
-        autoImportCompletion = true,
-      },
-      python = {
-        analysis = {
-          autoSearchPaths = true,
-          -- exclude = {"**/.venv/", "**/venv/", ".venv", "venv"},
-          diagnosticMode = "workspace",
-          useLibraryCodeForTypes = true,
-          -- typeCheckingMode = 'off',
-          diagnosticSeverityOverrides = {
-            -- reportUnusedImport = "none",
-            -- reportUnusedClass = "none",
-            -- reportUnusedFunction = "none",
-            -- reportUnusedVariable = "none",
-            reportIncompatibleVariableOverride = "none",
-          },
+  settings = {
+    pyright = {
+      autoImportCompletion = true,
+    },
+    python = {
+      analysis = {
+        autoSearchPaths = true,
+        -- exclude = {"**/.venv/", "**/venv/", ".venv", "venv"},
+        diagnosticMode = "workspace",
+        useLibraryCodeForTypes = true,
+        -- typeCheckingMode = 'off',
+        diagnosticSeverityOverrides = {
+          -- reportUnusedImport = "none",
+          -- reportUnusedClass = "none",
+          -- reportUnusedFunction = "none",
+          -- reportUnusedVariable = "none",
+          reportIncompatibleVariableOverride = "none",
         },
       },
     },
@@ -52,49 +47,40 @@ vim.lsp.config("pyright", {
 })
 
 vim.lsp.config("html", {
-  setup = {
-    filetypes = { "html", "mjml" },
-  },
+  filetypes = { "html", "mjml" },
 })
 
 vim.lsp.config("ts_ls", {
-  setup = {
-
-    init_options = {
-      plugins = {
-        {
-          name = "@vue/typescript-plugin",
-          location = vue_language_server_path,
-          languages = { "vue" },
-        },
+  init_options = {
+    plugins = {
+      {
+        name = "@vue/typescript-plugin",
+        location = vue_language_server_path,
+        languages = { "vue" },
       },
     },
-    filetypes = { "typescript", "javascript", "javascriptreact", "typescriptreact", "vue" },
   },
+  filetypes = { "typescript", "javascript", "javascriptreact", "typescriptreact", "vue" },
 })
 
 local bicep_language_server_path = "/usr/local/bin/bicep-langserver/Bicep.LangServer.dll"
 
 vim.lsp.config("bicep", {
-  setup = {
-    cmd = { "dotnet", bicep_language_server_path },
-  },
+  cmd = { "dotnet", bicep_language_server_path },
 })
 
 vim.cmd [[ autocmd BufNewFile,BufRead *.bicep set filetype=bicep ]]
 
 vim.lsp.config("yamlls", {
-  setup = {
-    yaml = {
-      schemas = {
-        ["https://json.schemastore.org/github-workflow.json"] = "/.github/workflows/*",
-        ["https://raw.githubusercontent.com/compose-spec/compose-spec/main/schema/compose-spec.json"] = {
-          "/docker-compose*.yml",
-        },
+  yaml = {
+    schemas = {
+      ["https://json.schemastore.org/github-workflow.json"] = "/.github/workflows/*",
+      ["https://raw.githubusercontent.com/compose-spec/compose-spec/main/schema/compose-spec.json"] = {
+        "/docker-compose*.yml",
       },
-      customTags = {
-        "!reference sequence",
-      },
+    },
+    customTags = {
+      "!reference sequence",
     },
   },
 })
