@@ -30,7 +30,7 @@ vim.lsp.config("pyright", {
     python = {
       analysis = {
         autoSearchPaths = true,
-        -- exclude = {"**/.venv/", "**/venv/", ".venv", "venv"},
+        exclude = { "**/.venv/", "**/venv/", ".venv", "venv" },
         diagnosticMode = "workspace",
         useLibraryCodeForTypes = true,
         -- typeCheckingMode = 'off',
