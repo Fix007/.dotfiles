@@ -136,10 +136,6 @@ return {
     lazy = false,
   },
   {
-    "justinmk/vim-sneak",
-    lazy = false,
-  },
-  {
     "mfussenegger/nvim-jdtls",
   },
   {
@@ -147,5 +143,11 @@ return {
     dependencies = "nvzone/volt",
     opts = require "configs.floaterm",
     cmd = "FloatermToggle",
+  },
+  {
+    "ggandor/leap.nvim",
+    init = function()
+      require("leap").set_default_mappings()
+    end,
   },
 }
