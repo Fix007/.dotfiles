@@ -15,10 +15,10 @@ local options = {
   },
   merge_keywords = false,
   highlight = {
-    pattern = [[.*# <(KEYWORDS)\s*:?]],
+    pattern = [[.*(#|//) <(KEYWORDS)\s*:?]],
   },
   search = {
-    pattern = [[# (KEYWORDS):?]],
+    pattern = [[(#|//) (KEYWORDS):?]],
   },
 }
 
