@@ -159,6 +159,13 @@ export XDG_CONFIG_HOME="$HOME/.config"
 autoload -U compinit; compinit
 source <(COMPLETE=zsh jj)
 
+# configure zoxide
+eval "$(zoxide init zsh)"
+alias cd="z"
+
+# fzf
+source <(fzf --zsh)
+
 # cargo bin
 PATH="$PATH:$HOME/.cargo/bin"
 
