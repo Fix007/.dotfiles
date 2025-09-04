@@ -72,15 +72,18 @@ vim.lsp.config("bicep", {
 vim.cmd [[ autocmd BufNewFile,BufRead *.bicep set filetype=bicep ]]
 
 vim.lsp.config("yamlls", {
-  yaml = {
-    schemas = {
-      ["https://json.schemastore.org/github-workflow.json"] = "/.github/workflows/*",
-      ["https://raw.githubusercontent.com/compose-spec/compose-spec/main/schema/compose-spec.json"] = {
-        "/docker-compose*.yml",
+  settings = {
+    yaml = {
+      schemas = {
+        ["https://json.schemastore.org/github-workflow.json"] = "/.github/workflows/*",
+        ["https://raw.githubusercontent.com/compose-spec/compose-spec/main/schema/compose-spec.json"] = {
+          "/docker-compose*.yml",
+        },
+        ["https://www.schemastore.org/liquibase-3.2.json"] = "/**/liquibase/**/*.yaml",
       },
-    },
-    customTags = {
-      "!reference sequence",
+      customTags = {
+        "!reference sequence",
+      },
     },
   },
 })
